@@ -5,6 +5,7 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -14,16 +15,29 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
+
+    @NotBlank(message = "El Rut es obligatorio")
     @Column(length = 10)
     public String rut;
+
+    @NotBlank(message = "El UID es obligatorio") @Size(min = 3, max = 250, message = "El UID debe ser un valor entre 3 y 10 caracteres")
     @Column(length = 10)
     public String uid;
+
+    @NotBlank(message = "El nombre es obligatorio") @Size(min = 3, max = 250, message = "El nombre debe ser un valor entre 3 y 250 caracteres")
     @Column(length = 250)
     public String nombres;
+
+    @NotBlank(message = "El apellido es obligatorio") @Size(min = 3, max = 250, message = "El apelliido debe ser un valor entre 3 y 250 caracteres")
     @Column(length = 250)
     public String apellidos;
+
+    @NotBlank(message = "El correo es obligatorio")  @Size(min = 10, max = 250, message = "El email debe tener al menos 10 caracteres")
+    @Email(message = "El correo enviado no es un formato válido")
     @Column(length = 250)
     public String correo;
+
+    @Size(min = 3, max = 10, message = "El telefono debe tener al menos 8 caracteres")
     @Column(length = 250)
     public String telefono;
     @Column(length = 250)
