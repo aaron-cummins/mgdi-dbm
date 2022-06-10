@@ -1,5 +1,8 @@
 package cl.cummins.mgdi.exeption;
 
+import cl.cummins.mgdi.MgdiApplication;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,8 @@ import java.util.Map;
 @RestController
 public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
+    private static final Logger logger = LoggerFactory.getLogger(ResponseExceptionHandler.class);
+
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<ExceptionResponse> ManejoExcepciopnes(Exception e){
 
@@ -32,20 +37,27 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-       Map<String, String> errors = new HashMap<>();
-       ex.getBindingResult().getAllErrors().forEach((error) -> {
+
+        /*logger.trace("Logger de rastreo");
+        logger.debug("mensaje de depuración");
+        logger.info("Mensahe de información");
+        logger.warn("Mensaje de Advertencia");
+        logger.error("Mensaje de error");*/
+
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
            String fieldName = ((FieldError)error).getField();
            String errorMessage = error.getDefaultMessage();
 
            errors.put(fieldName, errorMessage);
-       });
-       ExceptionResponse exceptionResponse = new ExceptionResponse(
+        });
+        ExceptionResponse exceptionResponse = new ExceptionResponse(
                 new Date(),
                 "Ocurrio un error",
                 ex.getMessage(),
                 errors
-       );
-       return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 
     }
 }
