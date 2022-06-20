@@ -7,6 +7,7 @@ import org.hibernate.annotations.NotFoundAction;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -47,6 +48,9 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "id_cargo", nullable = false)
     private Cargo cargo;
+
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    private List<PermisosUsuario> permisos;
 
     @Column()
     public Integer id_lugar_trabajo;
@@ -160,6 +164,14 @@ public class Usuario {
 
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
+    }
+
+    public List<PermisosUsuario> getPermisos() {
+        return permisos;
+    }
+
+    public void setPermisos(List<PermisosUsuario> permisos) {
+        this.permisos = permisos;
     }
 
     @Override
