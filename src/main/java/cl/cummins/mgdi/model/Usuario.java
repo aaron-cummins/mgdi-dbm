@@ -7,9 +7,10 @@ import org.hibernate.annotations.NotFoundAction;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler"})
 @Table(name="usuario")
 public class Usuario {
     @Id
@@ -43,11 +44,9 @@ public class Usuario {
     @Column(length = 250)
     public String anexo;
 
-    /*@ManyToOne
-    @JoinColumn(name = "id")
-    @NotFound(action = NotFoundAction.IGNORE)*/
-    @Column()
-    public Integer id_cargo;
+    @ManyToOne
+    @JoinColumn(name = "id_cargo", nullable = false)
+    private Cargo cargo;
 
     @Column()
     public Integer id_lugar_trabajo;
@@ -123,14 +122,6 @@ public class Usuario {
         this.anexo = anexo;
     }
 
-    public Integer getId_cargo() {
-        return id_cargo;
-    }
-
-    public void setId_cargo(Integer id_cargo) {
-        this.id_cargo = id_cargo;
-    }
-
     public Integer getId_lugar_trabajo() {
         return id_lugar_trabajo;
     }
@@ -161,5 +152,26 @@ public class Usuario {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return id.equals(usuario.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

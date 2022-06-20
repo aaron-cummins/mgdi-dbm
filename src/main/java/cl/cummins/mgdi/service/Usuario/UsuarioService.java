@@ -1,4 +1,4 @@
-package cl.cummins.mgdi.service;
+package cl.cummins.mgdi.service.Usuario;
 
 import cl.cummins.mgdi.model.Usuario;
 import cl.cummins.mgdi.repository.IUsuarioRepository;

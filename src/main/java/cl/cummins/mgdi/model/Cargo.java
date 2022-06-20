@@ -11,6 +11,7 @@ public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
+
     @Column(length = 250)
     public String nombre;
     @Column()
