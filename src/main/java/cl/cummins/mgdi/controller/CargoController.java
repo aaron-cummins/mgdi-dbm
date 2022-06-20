@@ -42,11 +42,11 @@ public class CargoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Cargo> delete(@PathVariable("id")Long id){
+    public ResponseEntity<Object> delete(@PathVariable("id")Long id){
         return cargoService.findById(id)
                 .map( c -> {
                     cargoService.delete(id);
-                    return ResponseEntity.ok(c);
+                    return ResponseEntity.ok().build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

@@ -42,11 +42,11 @@ public class RolesController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Roles> delete(@PathVariable("id")Long id){
+    public ResponseEntity<Object> delete(@PathVariable("id")Long id){
         return rolesService.findById(id)
                 .map( c -> {
                     rolesService.delete(id);
-                    return ResponseEntity.ok(c);
+                    return ResponseEntity.ok().build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

@@ -43,11 +43,11 @@ public class PermisosGlobalesController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<PermisosGlobales> delete(@PathVariable("id")Long id){
+    public ResponseEntity<Object> delete(@PathVariable("id")Long id){
         return permisosService.findById(id)
                 .map( c -> {
                     permisosService.delete(id);
-                    return ResponseEntity.ok(c);
+                    return ResponseEntity.ok().build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

@@ -42,11 +42,11 @@ public class VistasController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Vistas> delete(@PathVariable("id")Long id){
+    public ResponseEntity<Object> delete(@PathVariable("id")Long id){
         return vistasService.findById(id)
                 .map( c -> {
                     vistasService.delete(id);
-                    return ResponseEntity.ok(c);
+                    return ResponseEntity.ok().build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

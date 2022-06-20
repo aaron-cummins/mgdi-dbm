@@ -1,5 +1,7 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -14,6 +16,7 @@ public class PermisosUsuario {
     @Column(name = "id_lugar_trabajo")
     public Integer lugarTrabajo;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     public Usuario usuario;

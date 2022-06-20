@@ -42,11 +42,11 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Usuario> delete(@PathVariable("id")Long id){
+    public ResponseEntity<Object> delete(@PathVariable("id")Long id){
         return usuarioService.findById(id)
                 .map( c -> {
                     usuarioService.delete(id);
-                    return ResponseEntity.ok(c);
+                    return ResponseEntity.ok().build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
