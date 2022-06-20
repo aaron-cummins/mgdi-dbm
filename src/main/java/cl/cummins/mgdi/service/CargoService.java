@@ -1,7 +1,8 @@
-package cl.cummins.mgdi.service.Cargo;
+package cl.cummins.mgdi.service;
 
 import cl.cummins.mgdi.model.Cargo;
 import cl.cummins.mgdi.repository.ICargoRepository;
+import cl.cummins.mgdi.service.ICRUDSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CargoService implements  ICargoService {
+public class CargoService implements ICRUDSevice<Cargo> {
 
     @Autowired
     private ICargoRepository cargoRepo;

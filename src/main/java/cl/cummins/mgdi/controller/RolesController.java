@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Roles;
-import cl.cummins.mgdi.service.Roles.RolesService;
+import cl.cummins.mgdi.service.RolesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

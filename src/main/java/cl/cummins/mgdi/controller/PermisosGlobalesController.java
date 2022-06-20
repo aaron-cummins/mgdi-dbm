@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.PermisosGlobales;
-import cl.cummins.mgdi.service.PermisosGlobales.PermisosGlobalesService;
+import cl.cummins.mgdi.service.PermisosGlobalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

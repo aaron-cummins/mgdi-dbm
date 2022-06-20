@@ -1,14 +1,15 @@
-package cl.cummins.mgdi.service.PermisosGlobales;
+package cl.cummins.mgdi.service;
 
 import cl.cummins.mgdi.model.PermisosGlobales;
 import cl.cummins.mgdi.repository.IPermisosGlobalesRepository;
+import cl.cummins.mgdi.service.ICRUDSevice;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PermisosGlobalesService implements IPermisosGlobalesService {
+public class PermisosGlobalesService implements ICRUDSevice<PermisosGlobales> {
 
     private IPermisosGlobalesRepository permisoRepo;
 

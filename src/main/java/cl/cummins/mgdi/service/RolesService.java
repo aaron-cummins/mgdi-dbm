@@ -1,7 +1,8 @@
-package cl.cummins.mgdi.service.Roles;
+package cl.cummins.mgdi.service;
 
 import cl.cummins.mgdi.model.Roles;
 import cl.cummins.mgdi.repository.IRolesRepository;
+import cl.cummins.mgdi.service.ICRUDSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RolesService implements IRolesService {
+public class RolesService implements ICRUDSevice<Roles> {
 
     @Autowired
     private IRolesRepository rolesRepo;

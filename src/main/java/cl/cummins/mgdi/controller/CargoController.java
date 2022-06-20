@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Cargo;
-import cl.cummins.mgdi.service.Cargo.CargoService;
+import cl.cummins.mgdi.service.CargoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
