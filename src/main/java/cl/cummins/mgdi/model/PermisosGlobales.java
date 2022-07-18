@@ -2,8 +2,9 @@ package cl.cummins.mgdi.model;
 
 import javax.persistence.*;
 import java.util.Objects;
-
+import cl.cummins.mgdi.model.Roles;
 @Entity
+@Table(name="permisos_globales")
 public class PermisosGlobales {
 
     @Id
@@ -17,6 +18,10 @@ public class PermisosGlobales {
     @ManyToOne
     @JoinColumn(name = "id_vista", nullable = false)
     public Vistas vista;
+
+    @ManyToOne
+    @JoinColumn(name="id_modulo", nullable = false)
+    public Modulos modulo;
 
     public Long getId() {
         return id;
@@ -40,6 +45,14 @@ public class PermisosGlobales {
 
     public void setVista(Vistas vista) {
         this.vista = vista;
+    }
+
+    public Modulos getModulo(){
+        return this.modulo;
+    }
+
+    public void setModulo(Modulos modulo){
+        this.modulo = modulo;
     }
 
     @Override

@@ -2,7 +2,7 @@ package cl.cummins.mgdi.service;
 
 import cl.cummins.mgdi.model.Vistas;
 import cl.cummins.mgdi.repository.IVistasRepository;
-import cl.cummins.mgdi.service.ICRUDSevice;
+import cl.cummins.mgdi.service.ICRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class VistasService implements ICRUDSevice<Vistas> {
+public class VistasService implements ICRUDService<Vistas> {
 
     @Autowired
     private IVistasRepository vistaRepo;

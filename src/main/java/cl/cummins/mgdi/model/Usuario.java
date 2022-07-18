@@ -1,18 +1,14 @@
 package cl.cummins.mgdi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-//@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler"})
 @Table(name="usuario")
 public class Usuario {
     @Id
@@ -49,7 +45,6 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "id_cargo", nullable = false)
     private Cargo cargo;
-
     @OneToMany(mappedBy = "usuario", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
     private List<PermisosUsuario> permisos;
 

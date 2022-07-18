@@ -3,8 +3,9 @@ package cl.cummins.mgdi.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Objects;
+
+import cl.cummins.mgdi.model.Roles;
 
 @Entity
 public class PermisosUsuario {

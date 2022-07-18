@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Table(name="vistas")
 public class Vistas {
 
     @Id

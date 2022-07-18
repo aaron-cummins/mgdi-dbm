@@ -1,8 +1,8 @@
 package cl.cummins.mgdi.service;
 
 import cl.cummins.mgdi.model.PermisosUsuario;
-import cl.cummins.mgdi.repository.IPermisosUasuarioRepository;
-import cl.cummins.mgdi.service.ICRUDSevice;
+import cl.cummins.mgdi.repository.IPermisosUsuarioRepository;
+import cl.cummins.mgdi.service.ICRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PermisosUsuarioService implements ICRUDSevice<PermisosUsuario> {
+public class PermisosUsuarioService implements ICRUDService<PermisosUsuario> {
 
     @Autowired
-    private IPermisosUasuarioRepository pemisoRepo;
+    private IPermisosUsuarioRepository pemisoRepo;
 
     @Override
     public List<PermisosUsuario> findAll() {
