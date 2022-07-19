@@ -39,4 +39,8 @@ public class UsuarioService implements ICRUDService<Usuario> {
     public void delete(Long id) {
         usuarioRepo.deleteById(id);
     }
+
+    public Optional<Usuario> findByCorreo(String correo){
+        return usuarioRepo.findByCorreo(correo);
+    }
 }

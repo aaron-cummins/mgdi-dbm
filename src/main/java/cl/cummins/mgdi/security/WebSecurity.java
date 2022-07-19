@@ -1,4 +1,4 @@
 package cl.cummins.mgdi.security;
 
-public class WebSecurity {
+public class WebSecurity extends {
 }
