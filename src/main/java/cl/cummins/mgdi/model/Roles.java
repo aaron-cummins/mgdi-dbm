@@ -1,7 +1,10 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,8 +17,9 @@ public class Roles {
     @Column(length = 250)
     public String nombre;
 
-    @Column(length = 250)
-    public String controller;
+    @JsonIgnore
+    @OneToMany(mappedBy = "rol", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    private List<PermisosGlobales> permisosGlobales;
 
     @Column()
     public Timestamp created_at;
@@ -38,15 +42,7 @@ public class Roles {
         this.nombre = nombre;
     }
 
-    public String getController() {
-        return controller;
-    }
-
-    public void setController(String controller) {
-        this.controller = controller;
-    }
-
-    public Timestamp getCreated_at() {
+     public Timestamp getCreated_at() {
         return created_at;
     }
 
@@ -60,6 +56,14 @@ public class Roles {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public List<PermisosGlobales> getPermisosGlobales() {
+        return permisosGlobales;
+    }
+
+    public void setPermisosGlobales(List<PermisosGlobales> permisosGlobales) {
+        this.permisosGlobales = permisosGlobales;
     }
 
     @Override

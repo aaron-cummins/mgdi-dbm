@@ -1,6 +1,9 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,7 +19,10 @@ public class PermisosGlobales {
 
     @ManyToOne
     @JoinColumn(name = "id_vista", nullable = false)
-    public Vistas vista;
+    public Vistas vistas;
+
+    /*@OneToMany(mappedBy = "permisosGlobales", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    private List<Vistas> vistas;*/
 
     public Long getId() {
         return id;
@@ -34,12 +40,12 @@ public class PermisosGlobales {
         this.rol = rol;
     }
 
-    public Vistas getVista() {
-        return vista;
+    public Vistas getVistas() {
+        return vistas;
     }
 
-    public void setVista(Vistas vista) {
-        this.vista = vista;
+    public void setVistas(Vistas vistas) {
+        this.vistas = vistas;
     }
 
     @Override

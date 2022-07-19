@@ -2,6 +2,7 @@ package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Usuario;
 import cl.cummins.mgdi.service.UsuarioService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,14 @@ public class UsuarioController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/login/{correo}")
+    public ResponseEntity<Usuario> findByCorreo(@PathVariable("correo") String correo){
+        return usuarioService.findByCorreo(correo)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 
     @PostMapping
     public ResponseEntity<Usuario> create(@Valid @RequestBody Usuario usuario){

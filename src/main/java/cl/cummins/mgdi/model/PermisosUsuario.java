@@ -16,7 +16,6 @@ public class PermisosUsuario {
     @Column(name = "id_lugar_trabajo")
     public Integer lugarTrabajo;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     public Usuario usuario;
@@ -24,6 +23,8 @@ public class PermisosUsuario {
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = false)
     public Roles roles;
+
+
 
     @Column()
     public Integer versionMotor;

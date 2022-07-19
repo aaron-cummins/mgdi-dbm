@@ -39,4 +39,6 @@ public class UsuarioService implements ICRUDSevice<Usuario> {
     public void delete(Long id) {
         usuarioRepo.deleteById(id);
     }
+
+    public Optional<Usuario> findByCorreo(String correo) { return usuarioRepo.findByCorreo(correo); }
 }

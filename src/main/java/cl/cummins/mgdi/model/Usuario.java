@@ -50,8 +50,9 @@ public class Usuario {
     @JoinColumn(name = "id_cargo", nullable = false)
     private Cargo cargo;
 
+    /*@JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
-    private List<PermisosUsuario> permisos;
+    private List<PermisosUsuario> permisos;*/
 
     @Column()
     public Integer id_lugar_trabajo;
@@ -167,13 +168,13 @@ public class Usuario {
         this.cargo = cargo;
     }
 
-    public List<PermisosUsuario> getPermisos() {
+    /*public List<PermisosUsuario> getPermisos() {
         return permisos;
     }
 
     public void setPermisos(List<PermisosUsuario> permisos) {
         this.permisos = permisos;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {

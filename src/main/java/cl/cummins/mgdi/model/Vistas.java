@@ -1,5 +1,7 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -19,6 +21,7 @@ public class Vistas {
 
     @Column(length = 250)
     public String controller;
+
 
     @Column()
     public Timestamp created_at;
