@@ -5,10 +5,13 @@ import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class JwtUtil {
@@ -35,10 +38,12 @@ public class JwtUtil {
         return false;
     }
 
-    public String getUsername(String token) {
+    public String getUsername(String token)  {
         Claims claims = getClaims(token);
+        if (claims != null){
         logger.trace("getUsername", token);
-        return claims.getSubject();
+        return claims.getSubject();}
+        return null;
     }
 
     public boolean isExpired(String token) {
@@ -49,9 +54,10 @@ public class JwtUtil {
 
     private Claims getClaims(String token) {
         //Jwts.parserBuilder().setSigningKey(key).
+        Claims jwts = null;
         try {
             logger.trace("claims");
-            Jws<Claims> jwts = Jwts.parser().setSigningKey(key).parseClaimsJws(token);
+            jwts = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
         } catch (SignatureException e) {
             logger.info("Invalid JWT signature.");
             logger.trace("Invalid JWT signature trace: {}", e);
@@ -69,7 +75,7 @@ public class JwtUtil {
             logger.trace("JWT token compact of handler are invalid trace: {}", e);
         }
         System.out.println();
-        return Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
+        return jwts;
     }
 
 
