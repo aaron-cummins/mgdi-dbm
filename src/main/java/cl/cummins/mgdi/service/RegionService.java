@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RegionService implements ICRUDSevice<Region>{
+public class RegionService implements ICRUDService<Region>{
 
     @Autowired
     private IRegionRepository regionRepo;
