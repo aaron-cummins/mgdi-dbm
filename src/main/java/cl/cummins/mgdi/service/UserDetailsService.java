@@ -20,7 +20,7 @@ public class UserDetailsService implements org.springframework.security.core.use
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Usuario> usuario = usuarioService.findByCorreo(username);
         if (usuario.isPresent()){
-            return new User(usuario.get().correo, usuario.get().password(), new ArrayList<>());
+            return new User(usuario.get().getCorreo(), usuario.get().getPassword(), new ArrayList<>());
         } else {
             throw new UsernameNotFoundException("Ingrese un usuario valido");
         }

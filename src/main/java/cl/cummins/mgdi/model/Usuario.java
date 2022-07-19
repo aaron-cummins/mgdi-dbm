@@ -42,6 +42,9 @@ public class Usuario {
     @Column(length = 250)
     public String anexo;
 
+    @Column(length=255)
+    public String password;
+
     @ManyToOne
     @JoinColumn(name = "id_cargo", nullable = false)
     private Cargo cargo;
@@ -168,6 +171,14 @@ public class Usuario {
 
     public void setPermisos(List<PermisosUsuario> permisos) {
         this.permisos = permisos;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
     }
 
     @Override
