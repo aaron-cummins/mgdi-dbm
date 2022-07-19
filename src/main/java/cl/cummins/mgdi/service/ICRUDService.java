@@ -1,11 +1,9 @@
 package cl.cummins.mgdi.service;
 
-import cl.cummins.mgdi.model.Cargo;
-
 import java.util.List;
 import java.util.Optional;
 
-public interface ICRUDSevice<T> {
+public interface ICRUDService<T> {
     List<T> findAll();
 
     Optional<T> findById(Long id);

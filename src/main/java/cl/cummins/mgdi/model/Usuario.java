@@ -1,18 +1,14 @@
 package cl.cummins.mgdi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-//@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler"})
 @Table(name="usuario")
 public class Usuario {
     @Id
@@ -46,13 +42,14 @@ public class Usuario {
     @Column(length = 250)
     public String anexo;
 
+    @Column(length=255)
+    public String password;
+
     @ManyToOne
     @JoinColumn(name = "id_cargo", nullable = false)
     private Cargo cargo;
-
-    /*@JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
-    private List<PermisosUsuario> permisos;*/
+    private List<PermisosUsuario> permisos;
 
     @Column()
     public Integer id_lugar_trabajo;
@@ -168,13 +165,21 @@ public class Usuario {
         this.cargo = cargo;
     }
 
-    /*public List<PermisosUsuario> getPermisos() {
+    public List<PermisosUsuario> getPermisos() {
         return permisos;
     }
 
     public void setPermisos(List<PermisosUsuario> permisos) {
         this.permisos = permisos;
-    }*/
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
 
     @Override
     public boolean equals(Object o) {
