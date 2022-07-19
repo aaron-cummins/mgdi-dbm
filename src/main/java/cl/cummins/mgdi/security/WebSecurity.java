@@ -46,7 +46,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
 
                 // giving every permission to every request for /login endpoint
-                .authorizeRequests().antMatchers("/login").permitAll()
+                .authorizeRequests().antMatchers("/api/login").permitAll()
                 // for everything else, the user has to be authenticated
                 .anyRequest().authenticated()
                 // setting stateless session, because we choose to implement Rest API

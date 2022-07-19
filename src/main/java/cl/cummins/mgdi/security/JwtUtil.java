@@ -1,9 +1,10 @@
 package cl.cummins.mgdi.security;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -11,9 +12,10 @@ import java.util.Date;
 
 @Service
 public class JwtUtil {
-    private static final int expireInMs = 60 * 1000;
+    private static final int expireInMs = 8 * 60 * 1000;
+    private final static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
-    private final static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
 
     public String generate(String username) {
         return Jwts.builder()
@@ -26,22 +28,47 @@ public class JwtUtil {
     }
     public boolean validate(String token) {
         if (getUsername(token) != null && isExpired(token)) {
+            logger.trace("Is valid", token);
             return true;
         }
+        logger.trace("Is invalid", token);
         return false;
     }
 
     public String getUsername(String token) {
         Claims claims = getClaims(token);
+        logger.trace("getUsername", token);
         return claims.getSubject();
     }
 
     public boolean isExpired(String token) {
         Claims claims = getClaims(token);
+        logger.trace("isExpired" , token);
         return claims.getExpiration().after(new Date(System.currentTimeMillis()));
     }
 
     private Claims getClaims(String token) {
+        //Jwts.parserBuilder().setSigningKey(key).
+        try {
+            logger.trace("claims");
+            Jws<Claims> jwts = Jwts.parser().setSigningKey(key).parseClaimsJws(token);
+        } catch (SignatureException e) {
+            logger.info("Invalid JWT signature.");
+            logger.trace("Invalid JWT signature trace: {}", e);
+        } catch (MalformedJwtException e) {
+            logger.info("Invalid JWT token.");
+            logger.trace("Invalid JWT token trace: {}", e);
+        } catch (ExpiredJwtException e) {
+            logger.info("Expired JWT token.");
+            logger.trace("Expired JWT token trace: {}", e);
+        } catch (UnsupportedJwtException e) {
+            logger.info("Unsupported JWT token.");
+            logger.trace("Unsupported JWT token trace: {}", e);
+        } catch (IllegalArgumentException e) {
+            logger.info("JWT token compact of handler are invalid.");
+            logger.trace("JWT token compact of handler are invalid trace: {}", e);
+        }
+        System.out.println();
         return Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
     }
 

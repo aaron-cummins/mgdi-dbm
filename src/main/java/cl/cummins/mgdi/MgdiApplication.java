@@ -9,7 +9,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class MgdiApplication {
-    public static void main(String[] args) {	SpringApplication.run(MgdiApplication.class, args);	}
+    public static void main(String[] args) {
+        SpringApplication.run(MgdiApplication.class, args);
+        System.out.println(new BCryptPasswordEncoder().encode("123456"));
+    }
 
     // Creating a bean for password encryption
     @Bean
