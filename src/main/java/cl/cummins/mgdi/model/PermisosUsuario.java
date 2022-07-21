@@ -17,8 +17,8 @@ public class PermisosUsuario {
     @Column(name = "id_lugar_trabajo")
     public Integer lugarTrabajo;
 
-    @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id_usuario", nullable = false)
     public Usuario usuario;
 
     @ManyToOne

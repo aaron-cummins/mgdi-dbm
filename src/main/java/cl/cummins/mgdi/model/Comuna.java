@@ -1,12 +1,17 @@
 package cl.cummins.mgdi.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-public class Region {
+@Table(name="comunas")
+@Data
+public class Comuna {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
@@ -19,40 +24,12 @@ public class Region {
     @Column(length = 250)
     public String nombre;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Region region;
+
     @OneToMany(mappedBy = "id")
-    private List<Comuna> comunas;
+    private List<LugarTrabajo> lugarTrabajo;
 
+    @Column()
     public boolean activo;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
 }

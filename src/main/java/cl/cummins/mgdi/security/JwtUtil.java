@@ -26,6 +26,7 @@ public class JwtUtil {
                 .setIssuer("cl.cummins.mgdi")
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expireInMs))
+                .claim("try","prueba")
                 .signWith(key)
                 .compact();
     }
