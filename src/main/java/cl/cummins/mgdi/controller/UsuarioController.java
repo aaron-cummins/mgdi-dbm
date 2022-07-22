@@ -1,15 +1,18 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Usuario;
+import cl.cummins.mgdi.model.UsuarioRest;
 import cl.cummins.mgdi.service.UsuarioService;
-import org.apache.coyote.Response;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -19,15 +22,30 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> findAll(){
-        return ResponseEntity.ok(usuarioService.findAll());
+    public ResponseEntity<List<UsuarioRest>> findAll(){
+        List<Usuario> usuarios = usuarioService.findAll();
+        List<UsuarioRest> usuarioRestList = new ArrayList<>();
+        UsuarioRest usuarioRest = null;
+
+       for(Usuario usuario: usuarios){
+            usuarioRest = new UsuarioRest();
+            BeanUtils.copyProperties(usuario, usuarioRest);
+            usuarioRestList.add(usuarioRest);
+       }
+
+        return new ResponseEntity<>(usuarioRestList, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> findById(@PathVariable("id") Long id){
-        return usuarioService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<UsuarioRest> findById(@PathVariable("id") Long id){
+        Optional<Usuario> usuario = usuarioService.findById(id);
+        UsuarioRest usuarioRest = new UsuarioRest();
+        if (usuario.isPresent()){
+            BeanUtils.copyProperties(usuario, usuarioRest);
+
+            return new ResponseEntity<>(usuarioRest, HttpStatus.OK);
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/login/{correo}")

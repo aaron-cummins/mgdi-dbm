@@ -7,8 +7,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -46,22 +44,20 @@ public class Usuario {
     @Column(length = 250)
     public String anexo;
 
-    @Column(length=255)
     public String password;
 
     @ManyToOne
     @JoinColumn(name = "id_cargo", nullable = false)
     private Cargo cargo;
-//    @OneToMany(mappedBy = "id", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
-    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
 
-    private List<PermisosUsuario> permisos;
+    //@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "usuario_id")
+    private Set<PermisosUsuario> permisos;
 
-    @OneToMany(mappedBy =  "id")
-    public List<LugarTrabajo> lugarTrabajos;
-//
-//    @Column()
-//    public Integer id_lugar_trabajo;
+//    @OneToMany(mappedBy =  "id")
+//    public Set<LugarTrabajo> lugarTrabajos;
+
     @Column()
     public Timestamp created_at;
     @Column()

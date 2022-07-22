@@ -6,8 +6,10 @@ import javax.persistence.*;
 import java.util.Objects;
 
 import cl.cummins.mgdi.model.Roles;
+import lombok.Data;
 
 @Entity
+@Data
 public class PermisosUsuario {
 
     @Id
@@ -17,9 +19,9 @@ public class PermisosUsuario {
     @Column(name = "id_lugar_trabajo")
     public Integer lugarTrabajo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id_usuario", nullable = false)
-    public Usuario usuario;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id_usuario", nullable = false)
+//    public Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = false)
@@ -30,56 +32,56 @@ public class PermisosUsuario {
     @Column()
     public Integer versionMotor;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getLugarTrabajo() {
-        return lugarTrabajo;
-    }
-
-    public void setLugarTrabajo(Integer lugarTrabajo) {
-        this.lugarTrabajo = lugarTrabajo;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Roles getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Roles roles) {
-        this.roles = roles;
-    }
-
-    public Integer getVersionMotor() {
-        return versionMotor;
-    }
-
-    public void setVersionMotor(Integer versionMotor) {
-        this.versionMotor = versionMotor;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PermisosUsuario that = (PermisosUsuario) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public Integer getLugarTrabajo() {
+//        return lugarTrabajo;
+//    }
+//
+//    public void setLugarTrabajo(Integer lugarTrabajo) {
+//        this.lugarTrabajo = lugarTrabajo;
+//    }
+//
+//    public Usuario getUsuario() {
+//        return usuario;
+//    }
+//
+//    public void setUsuario(Usuario usuario) {
+//        this.usuario = usuario;
+//    }
+//
+//    public Roles getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(Roles roles) {
+//        this.roles = roles;
+//    }
+//
+//    public Integer getVersionMotor() {
+//        return versionMotor;
+//    }
+//
+//    public void setVersionMotor(Integer versionMotor) {
+//        this.versionMotor = versionMotor;
+//    }
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        PermisosUsuario that = (PermisosUsuario) o;
+//        return Objects.equals(id, that.id);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id);
+//    }
 }
