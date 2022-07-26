@@ -43,7 +43,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http
                 // disabling csrf since we won't use form login
                 .csrf().disable()
-
+                //.cors().disable()
                 // giving every permission to every request for /login endpoint
                 .authorizeRequests().antMatchers("/api/login").permitAll()
                 // for everything else, the user has to be authenticated

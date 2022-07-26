@@ -16,15 +16,11 @@ public class Comuna {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @NotBlank(message = "El Numero es obligatorio")
-    @Column(length = 10)
-    public String numero;
-
     @NotBlank(message = "El nombre es obligatorio") @Size(min = 3, max = 250, message = "El nombre debe ser un valor entre 3 y 250 caracteres")
     @Column(length = 250)
     public String nombre;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     private Region region;
 
     @OneToMany(mappedBy = "id")
