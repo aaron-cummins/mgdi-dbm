@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,13 +19,14 @@ public class JwtUtil {
     private static final int expireInMs = 8 * 60 * 1000;
     private final static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
-    private final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
 
     public String generate(String username) {
+        Date emisionDate = new Date(System.currentTimeMillis());
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuer("cl.cummins.mgdi")
-                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setIssuedAt(emisionDate)
                 .setExpiration(new Date(System.currentTimeMillis() + expireInMs))
                 .claim("try","prueba")
                 .signWith(key)
@@ -42,8 +44,8 @@ public class JwtUtil {
     public String getUsername(String token)  {
         Claims claims = getClaims(token);
         if (claims != null){
-        logger.trace("getUsername", token);
-        return claims.getSubject();}
+            logger.trace("getUsername", claims.getSubject(), claims.getIssuedAt(), claims.getExpiration());
+            return claims.getSubject();}
         return null;
     }
 
@@ -61,7 +63,7 @@ public class JwtUtil {
             jwts = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
         } catch (SignatureException e) {
             logger.info("Invalid JWT signature.");
-            logger.trace("Invalid JWT signature trace: {}", e);
+            logger.trace("Invalid JWT signature trace: {}", Arrays.stream(e.getStackTrace()));
         } catch (MalformedJwtException e) {
             logger.info("Invalid JWT token.");
             logger.trace("Invalid JWT token trace: {}", e);

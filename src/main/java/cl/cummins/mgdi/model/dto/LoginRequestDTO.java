@@ -1,4 +1,4 @@
-package cl.cummins.mgdi.model;
+package cl.cummins.mgdi.model.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

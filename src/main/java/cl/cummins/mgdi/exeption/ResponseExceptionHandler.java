@@ -25,7 +25,7 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(ResponseExceptionHandler.class);
 
     @ExceptionHandler(Exception.class)
-    public final ResponseEntity<ExceptionResponse> ManejoExcepciopnes(Exception e){
+    public final ResponseEntity<ExceptionResponse> ManejoExcepciones(Exception e){
 
         ExceptionResponse exceptionResponse = new ExceptionResponse(
           new Date(),
