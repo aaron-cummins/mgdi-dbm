@@ -6,12 +6,15 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 import cl.cummins.mgdi.model.Roles;
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="permisos_globales")
 public class PermisosGlobales {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPermisosGlobales")
+    @GenericGenerator(name = "incrementPermisosGlobales", strategy = "increment")
     public Long id;
 
     @ManyToOne

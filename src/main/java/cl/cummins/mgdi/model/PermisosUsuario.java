@@ -7,13 +7,15 @@ import java.util.Objects;
 
 import cl.cummins.mgdi.model.Roles;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Data
 public class PermisosUsuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPermisosUsuario")
+    @GenericGenerator(name = "incrementPermisosUsuario", strategy = "increment")
     public Long id;
 
     @Column(name = "id_lugar_trabajo")

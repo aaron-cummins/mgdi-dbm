@@ -1,14 +1,20 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+@Data
 public class Region {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementRegion")
+    @GenericGenerator(name = "incrementRegion", strategy = "increment")
     public Long id;
 
     @NotBlank(message = "El Numero es obligatorio")
@@ -19,40 +25,42 @@ public class Region {
     @Column(length = 250)
     public String nombre;
 
-    @OneToMany(mappedBy = "id")
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)//mappedBy = "id")
+    @JoinColumn(name = "region_id")
     private List<Comuna> comunas;
 
     public boolean activo;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getNumero() {
+//        return numero;
+//    }
+//
+//    public void setNumero(String numero) {
+//        this.numero = numero;
+//    }
+//
+//    public String getNombre() {
+//        return nombre;
+//    }
+//
+//    public void setNombre(String nombre) {
+//        this.nombre = nombre;
+//    }
+//
+//    public boolean isActivo() {
+//        return activo;
+//    }
+//
+//    public void setActivo(boolean activo) {
+//        this.activo = activo;
+//    }
 }

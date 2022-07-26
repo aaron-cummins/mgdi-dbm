@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,7 +11,8 @@ import java.util.List;
 @Data
 public class TipoLugarTrabajo{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementTipoLugarTrabajo")
+    @GenericGenerator(name = "incrementTipoLugarTrabajo", strategy = "increment")
     public Long id;
 
     private String tipo;

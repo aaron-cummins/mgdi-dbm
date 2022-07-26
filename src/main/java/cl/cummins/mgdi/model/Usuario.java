@@ -1,6 +1,9 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -14,7 +17,8 @@ import java.util.Set;
 @Data
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementUsuario")
+    @GenericGenerator(name = "incrementUsuario", strategy = "increment")
     public Long id;
 
     @NotBlank(message = "El Rut es obligatorio")
@@ -46,11 +50,13 @@ public class Usuario {
 
     public String password;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "id_cargo", nullable = false)
     private Cargo cargo;
 
     //@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "usuario_id")
     private Set<PermisosUsuario> permisos;

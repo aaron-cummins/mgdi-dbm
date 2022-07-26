@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -9,7 +10,8 @@ import javax.persistence.*;
 public class Cargo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementCargo")
+    @GenericGenerator(name = "incrementCargo", strategy = "increment")
     public Long id;
 
     @Column(length = 250)

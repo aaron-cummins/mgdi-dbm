@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -11,7 +12,8 @@ import java.util.Objects;
 public class Vistas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementVistas")
+    @GenericGenerator(name = "incrementVistas", strategy = "increment")
     public Long id;
 
     @Column(length = 250)

@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -9,7 +10,8 @@ import javax.persistence.*;
 @Data
 public class LugarTrabajo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementLugarTrabajo")
+    @GenericGenerator(name = "incrementLugarTrabajo", strategy = "increment")
     public Long id;
 
     @Column(nullable = false, length = 255)

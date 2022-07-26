@@ -31,12 +31,12 @@ public class ComunaController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Comuna> create(@Valid @RequestBody Comuna comuna){
         return new ResponseEntity<>(comunaService.create(comuna), HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping("/save")
     public ResponseEntity<Comuna> update(@Valid @RequestBody Comuna comuna){
         return comunaService.findById(comuna.getId())
                 .map( c -> ResponseEntity.ok(comunaService.update(comuna)))

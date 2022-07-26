@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -11,7 +12,8 @@ import java.sql.Timestamp;
 public class Modulos {
 
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementModulos")
+        @GenericGenerator(name = "incrementModulos", strategy = "increment")
         public Long id;
 
         @Column(length = 250)

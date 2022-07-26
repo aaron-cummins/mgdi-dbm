@@ -1,11 +1,14 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="comunas")
@@ -13,18 +16,20 @@ import java.util.List;
 public class Comuna {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementComuna")
+    @GenericGenerator(name = "incrementComuna", strategy = "increment")
     public Long id;
 
     @NotBlank(message = "El nombre es obligatorio") @Size(min = 3, max = 250, message = "El nombre debe ser un valor entre 3 y 250 caracteres")
     @Column(length = 250)
     public String nombre;
 
+    @JsonBackReference
     @ManyToOne()
     private Region region;
 
     @OneToMany(mappedBy = "id")
-    private List<LugarTrabajo> lugarTrabajo;
+    private Set<LugarTrabajo> lugarTrabajo;
 
     @Column()
     public boolean activo;
