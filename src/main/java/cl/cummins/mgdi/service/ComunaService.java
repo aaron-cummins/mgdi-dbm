@@ -3,10 +3,12 @@ package cl.cummins.mgdi.service;
 import cl.cummins.mgdi.model.Comuna;
 import cl.cummins.mgdi.repository.IComunaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ComunaService implements ICRUDService<Comuna>{
 
     @Autowired
