@@ -14,6 +14,8 @@ import java.util.List;
 @RequestMapping("/api/comuna")
 public class ComunaController {
 
+    //TODO: Verificar guardado de comuna nueva.
+
     @Autowired
     private ComunaService comunaService;
 

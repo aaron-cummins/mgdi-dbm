@@ -6,17 +6,15 @@ import io.jsonwebtoken.security.SignatureException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class JwtUtil {
-    private static final int expireInMs = 8 * 60 * 1000;
+    private static final int expireInMs = 120 * 60 * 1000;
     private final static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
     private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
@@ -28,7 +26,7 @@ public class JwtUtil {
                 .setIssuer("cl.cummins.mgdi")
                 .setIssuedAt(emisionDate)
                 .setExpiration(new Date(System.currentTimeMillis() + expireInMs))
-                .claim("try","prueba")
+                .claim("GrantedAuthorities", new ArrayList<GrantedAuthority>())
                 .signWith(key)
                 .compact();
     }

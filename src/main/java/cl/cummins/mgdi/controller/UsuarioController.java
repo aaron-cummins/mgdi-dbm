@@ -42,9 +42,9 @@ public class UsuarioController {
         UsuarioRest usuarioRest = new UsuarioRest();
         if (usuario.isPresent()){
             BeanUtils.copyProperties(usuario, usuarioRest);
-
             return new ResponseEntity<>(usuarioRest, HttpStatus.OK);
         }
+
         return ResponseEntity.notFound().build();
     }
 
