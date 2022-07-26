@@ -1,5 +1,7 @@
 package cl.cummins.mgdi.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,23 +29,28 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
+    private static final Logger logger = LoggerFactory.getLogger(WebSecurity.class);
+
     @Autowired
     public void configurePasswordEncoder(AuthenticationManagerBuilder builder) throws Exception {
         // adding custom UserDetailsService and encryption bean to Authentication Manager
+        logger.info("Configurando el password Encoder ------>");
         builder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
     @Bean
     public AuthenticationManager getAuthenticationManager() throws Exception {
+        logger.info("Devolviendo el Authentication Manager ------>");
         return super.authenticationManagerBean();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        logger.info("configurando la Seguridad Http ------>");
+
         http
                 // disabling csrf since we won't use form login
                 .csrf().disable()
-                //.cors().disable()
                 // giving every permission to every request for /login endpoint
                 .authorizeRequests().antMatchers("/api/login").permitAll()
                 // for everything else, the user has to be authenticated
@@ -53,6 +60,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         // adding the custom filter before UsernamePasswordAuthenticationFilter in the filter chain
+
+        logger.info("Agregando el filtro de authernticacion antes del filter chain ------>");
+
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 

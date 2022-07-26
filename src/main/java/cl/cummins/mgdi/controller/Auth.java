@@ -1,6 +1,6 @@
 package cl.cummins.mgdi.controller;
 
-import cl.cummins.mgdi.model.LoginRequestDTO;
+import cl.cummins.mgdi.model.dto.LoginRequestDTO;
 import cl.cummins.mgdi.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
