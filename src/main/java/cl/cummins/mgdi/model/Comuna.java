@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -28,7 +29,9 @@ public class Comuna {
     @ManyToOne()
     private Region region;
 
-    @OneToMany(mappedBy = "id")
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL)//mappedBy = "id")
+    @JoinColumn(name = "comuna_id")
     private Set<LugarTrabajo> lugarTrabajo;
 
     @Column()
