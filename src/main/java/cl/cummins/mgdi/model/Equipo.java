@@ -28,7 +28,6 @@ public class Equipo {
     @JoinColumn(name = "oem_id")
     private Oem oem;
 
-
     @OneToMany(mappedBy = "equipo", orphanRemoval = true)
     private Set<VersionEquipo> versionEquipos = new LinkedHashSet<>();
 
