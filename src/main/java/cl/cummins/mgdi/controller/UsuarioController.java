@@ -5,6 +5,7 @@ import cl.cummins.mgdi.model.UsuarioRest;
 import cl.cummins.mgdi.service.UsuarioService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,27 +33,36 @@ public class UsuarioController {
             BeanUtils.copyProperties(usuario, usuarioRest);
             usuarioRestList.add(usuarioRest);
        }
-
+        usuarios = null;
         return new ResponseEntity<>(usuarioRestList, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioRest> findById(@PathVariable("id") Long id){
         Optional<Usuario> usuario = usuarioService.findById(id);
+        Usuario usuarioFound = null;
         UsuarioRest usuarioRest = new UsuarioRest();
         if (usuario.isPresent()){
-            BeanUtils.copyProperties(usuario, usuarioRest);
+            usuarioFound = usuario.get();
+            BeanUtils.copyProperties(usuarioFound, usuarioRest);
+
             return new ResponseEntity<>(usuarioRest, HttpStatus.OK);
         }
-
         return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/login/{correo}")
-    public ResponseEntity<Usuario> findByCorreo(@PathVariable("correo") String correo){
-        return usuarioService.findByCorreo(correo)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<UsuarioRest> findByCorreo(@PathVariable("correo") String correo){
+        Optional<Usuario> usuario = usuarioService.findByCorreo(correo);
+        Usuario usuarioFound = null;
+        UsuarioRest usuarioRest = new UsuarioRest();
+        if (usuario.isPresent()){
+            usuarioFound = usuario.get();
+            BeanUtils.copyProperties(usuarioFound, usuarioRest);
+            return new ResponseEntity<>(usuarioRest, HttpStatus.OK);
+
+        }
+        return ResponseEntity.notFound().build();
     }
 
 
