@@ -16,8 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class PermisosUsuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPermisosUsuario")
-    @GenericGenerator(name = "incrementPermisosUsuarios", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementPermisosUsuario")
     public Long id;
 
     @Column(name = "id_lugar_trabajo")

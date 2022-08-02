@@ -10,8 +10,7 @@ import java.util.Set;
 @Table(name="version_equipo")
 public class VersionEquipo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementVersionEquipo")
-    @GenericGenerator(name = "incrementVersionEquipos", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementVersionEquipo")
     public Long id;
 
     private String version;

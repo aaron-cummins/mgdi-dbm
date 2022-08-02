@@ -11,8 +11,7 @@ import java.util.Date;
 @Data
 public class Unidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementUnidad")
-    @GenericGenerator(name = "incrementUnidades", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementUnidad")
     public Long id;
 
     public String nombre;

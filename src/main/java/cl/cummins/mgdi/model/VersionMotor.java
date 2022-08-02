@@ -12,8 +12,7 @@ import java.util.Set;
 @Data
 public class VersionMotor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementVersionMotor")
-    @GenericGenerator(name = "incrementVersionMotores", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementVersionMotor")
     public Long id;
 
     @Column(name="nombre_comercial")

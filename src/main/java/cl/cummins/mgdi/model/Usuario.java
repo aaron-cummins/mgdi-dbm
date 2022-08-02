@@ -17,8 +17,7 @@ import java.util.Set;
 @Data
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementUsuario")
-    @GenericGenerator(name = "incrementUsuarios", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementUsuario")
     public Long id;
 
     @NotBlank(message = "El Rut es obligatorio")

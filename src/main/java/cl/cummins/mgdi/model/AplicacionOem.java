@@ -12,8 +12,7 @@ import java.util.Set;
 @Data
 public class AplicacionOem {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementAplicacionOem")
-    @GenericGenerator(name = "incrementAplicacionesOem", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementAplicacionOem")
     public Long id;
 
     private String nombre;

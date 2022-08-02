@@ -12,8 +12,7 @@ import java.util.Objects;
 public class Vistas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementVistas")
-    @GenericGenerator(name = "incrementVista", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementVistas")
     public Long id;
 
     @Column(length = 250)

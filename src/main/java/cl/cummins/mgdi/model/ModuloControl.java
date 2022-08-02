@@ -12,8 +12,7 @@ import java.util.Set;
 @Data
 public class ModuloControl {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementModuloControl")
-    @GenericGenerator(name = "incrementModulosControl", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementModuloControl")
     public Long id;
 
     private String nombre;

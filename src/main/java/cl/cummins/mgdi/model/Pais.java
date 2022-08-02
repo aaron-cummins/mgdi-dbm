@@ -12,8 +12,7 @@ import java.util.List;
 @Data
 public class Pais {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPais")
-    @GenericGenerator(name = "incrementPaises", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementPais")
     public Long id;
 
     public String nombre;

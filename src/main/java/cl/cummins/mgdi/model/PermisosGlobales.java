@@ -13,8 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class PermisosGlobales {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPermisosGlobales")
-    @GenericGenerator(name = "incrementPermisosGlobal", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementPermisosGlobales")
     public Long id;
 
     @ManyToOne

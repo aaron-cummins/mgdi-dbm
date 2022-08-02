@@ -13,8 +13,7 @@ import java.util.Objects;
 public class Roles {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementRoles")
-    @GenericGenerator(name = "incrementRol", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementRoles")
     public Long id;
 
     @Column(length = 250)

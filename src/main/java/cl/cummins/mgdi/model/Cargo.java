@@ -10,8 +10,7 @@ import javax.persistence.*;
 public class Cargo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementCargo")
-    @GenericGenerator(name = "incrementCargos", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementCargo")
     public Long id;
 
     @Column(length = 250)

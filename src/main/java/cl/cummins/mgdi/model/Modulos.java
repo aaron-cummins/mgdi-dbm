@@ -12,8 +12,7 @@ import java.sql.Timestamp;
 public class Modulos {
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementModulos")
-        @GenericGenerator(name = "incrementModulo", strategy = "increment")
+        @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementModulos")
         public Long id;
 
         @Column(length = 250)

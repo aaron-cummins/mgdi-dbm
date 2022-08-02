@@ -12,8 +12,7 @@ import java.util.Set;
 @Data
 public class Posttratamiento {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPosttratamiento")
-    @GenericGenerator(name = "incrementPosttratamientos", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementPosttratamiento")
     public Long id;
 
     private String nombre;

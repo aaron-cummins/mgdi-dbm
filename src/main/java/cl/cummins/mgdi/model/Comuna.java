@@ -17,8 +17,7 @@ import java.util.Set;
 public class Comuna {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementComuna")
-    @GenericGenerator(name = "incrementComunas", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementComuna")
     public Long id;
 
     @NotBlank(message = "El nombre es obligatorio") @Size(min = 3, max = 250, message = "El nombre debe ser un valor entre 3 y 250 caracteres")
