@@ -19,7 +19,6 @@ public class VersionEquipo {
     private boolean activo;
 
 
-
     @OneToMany(mappedBy = "versionEquipo", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Unidad> unidads = new LinkedHashSet<>();
 
