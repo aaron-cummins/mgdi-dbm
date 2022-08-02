@@ -54,12 +54,13 @@ public class AplicacionOemController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable("id")Long id){
-        return aplicacionOemService.findById(id)
-                .map( c -> {
-                    aplicacionOemService.delete(id);
-                    return ResponseEntity.ok().build();
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Object> delete(@PathVariable("id")Long id) {
+        Optional<AplicacionOem> aplicacionOemOld = aplicacionOemService.findById(id);
+        if (aplicacionOemOld.isPresent()) {
+            aplicacionOemService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
 }
