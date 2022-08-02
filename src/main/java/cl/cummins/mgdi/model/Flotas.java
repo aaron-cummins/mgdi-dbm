@@ -14,7 +14,7 @@ import java.util.Set;
 public class Flotas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementFlotas")
-    @GenericGenerator(name = "incrementFlotas", strategy = "increment")
+    @GenericGenerator(name = "incrementFlota", strategy = "increment")
     public Long id;
 
     public String nombre;

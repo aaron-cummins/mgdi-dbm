@@ -11,7 +11,7 @@ public class Cargo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementCargo")
-    @GenericGenerator(name = "incrementCargo", strategy = "increment")
+    @GenericGenerator(name = "incrementCargos", strategy = "increment")
     public Long id;
 
     @Column(length = 250)

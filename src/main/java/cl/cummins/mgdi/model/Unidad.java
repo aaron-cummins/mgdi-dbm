@@ -12,7 +12,7 @@ import java.util.Date;
 public class Unidad {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementUnidad")
-    @GenericGenerator(name = "incrementUnidad", strategy = "increment")
+    @GenericGenerator(name = "incrementUnidades", strategy = "increment")
     public Long id;
 
     public String nombre;

@@ -14,7 +14,7 @@ import java.util.List;
 public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementRegion")
-    @GenericGenerator(name = "incrementRegion", strategy = "increment")
+    @GenericGenerator(name = "incrementRegiones", strategy = "increment")
     public Long id;
 
     @NotBlank(message = "El Numero es obligatorio")

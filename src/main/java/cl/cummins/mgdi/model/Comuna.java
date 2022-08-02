@@ -18,7 +18,7 @@ public class Comuna {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementComuna")
-    @GenericGenerator(name = "incrementComuna", strategy = "increment")
+    @GenericGenerator(name = "incrementComunas", strategy = "increment")
     public Long id;
 
     @NotBlank(message = "El nombre es obligatorio") @Size(min = 3, max = 250, message = "El nombre debe ser un valor entre 3 y 250 caracteres")

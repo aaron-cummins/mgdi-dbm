@@ -11,7 +11,7 @@ import java.util.Set;
 public class VersionEquipo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementVersionEquipo")
-    @GenericGenerator(name = "incrementVersionEquipo", strategy = "increment")
+    @GenericGenerator(name = "incrementVersionEquipos", strategy = "increment")
     public Long id;
 
     private String version;

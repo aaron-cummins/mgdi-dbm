@@ -14,7 +14,7 @@ import java.util.List;
 public class Zona {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementZona")
-    @GenericGenerator(name = "incrementZona", strategy = "increment")
+    @GenericGenerator(name = "incrementZonas", strategy = "increment")
     public Long id;
 
     public String nombre;

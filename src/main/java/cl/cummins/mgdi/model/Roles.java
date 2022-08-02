@@ -14,7 +14,7 @@ public class Roles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementRoles")
-    @GenericGenerator(name = "incrementRoles", strategy = "increment")
+    @GenericGenerator(name = "incrementRol", strategy = "increment")
     public Long id;
 
     @Column(length = 250)

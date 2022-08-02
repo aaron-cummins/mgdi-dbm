@@ -14,7 +14,7 @@ public class PermisosGlobales {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPermisosGlobales")
-    @GenericGenerator(name = "incrementPermisosGlobales", strategy = "increment")
+    @GenericGenerator(name = "incrementPermisosGlobal", strategy = "increment")
     public Long id;
 
     @ManyToOne

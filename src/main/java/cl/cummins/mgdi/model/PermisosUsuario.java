@@ -17,7 +17,7 @@ public class PermisosUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPermisosUsuario")
-    @GenericGenerator(name = "incrementPermisosUsuario", strategy = "increment")
+    @GenericGenerator(name = "incrementPermisosUsuarios", strategy = "increment")
     public Long id;
 
     @Column(name = "id_lugar_trabajo")

@@ -13,7 +13,7 @@ import java.util.Set;
 public class TipoCombustible {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementTipoCombustible")
-    @GenericGenerator(name = "incrementTipoCombustible", strategy = "increment")
+    @GenericGenerator(name = "incrementTipoCombustibles", strategy = "increment")
     public Long id;
 
     private String nombre;

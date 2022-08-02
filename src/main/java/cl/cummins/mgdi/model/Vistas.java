@@ -13,7 +13,7 @@ public class Vistas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementVistas")
-    @GenericGenerator(name = "incrementVistas", strategy = "increment")
+    @GenericGenerator(name = "incrementVista", strategy = "increment")
     public Long id;
 
     @Column(length = 250)

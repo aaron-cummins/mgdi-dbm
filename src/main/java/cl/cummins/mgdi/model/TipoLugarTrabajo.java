@@ -12,7 +12,7 @@ import java.util.List;
 public class TipoLugarTrabajo{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementTipoLugarTrabajo")
-    @GenericGenerator(name = "incrementTipoLugarTrabajo", strategy = "increment")
+    @GenericGenerator(name = "incrementTipoLugaresTrabajo", strategy = "increment")
     public Long id;
 
     private String tipo;

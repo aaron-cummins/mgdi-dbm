@@ -14,7 +14,7 @@ import java.util.Set;
 public class LugarTrabajo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementLugarTrabajo")
-    @GenericGenerator(name = "incrementLugarTrabajo", strategy = "increment")
+    @GenericGenerator(name = "incrementLugaresTrabajo", strategy = "increment")
     public Long id;
 
     @Column(nullable = false, length = 255)

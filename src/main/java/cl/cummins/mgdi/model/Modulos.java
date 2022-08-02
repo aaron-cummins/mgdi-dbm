@@ -13,7 +13,7 @@ public class Modulos {
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementModulos")
-        @GenericGenerator(name = "incrementModulos", strategy = "increment")
+        @GenericGenerator(name = "incrementModulo", strategy = "increment")
         public Long id;
 
         @Column(length = 250)

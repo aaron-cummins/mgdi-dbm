@@ -8,12 +8,12 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="posttramiento")
+@Table(name="posttratamiento")
 @Data
 public class Posttratamiento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementPosttratamiento")
-    @GenericGenerator(name = "incrementPosttramiento", strategy = "increment")
+    @GenericGenerator(name = "incrementPosttratamientos", strategy = "increment")
     public Long id;
 
     private String nombre;
