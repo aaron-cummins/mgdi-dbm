@@ -24,14 +24,8 @@ public class Comuna {
     @Column(length = 250)
     public String nombre;
 
-    @JsonBackReference
-    @ManyToOne()
-    private Region region;
-
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL)//mappedBy = "id")
-    @JoinColumn(name = "comuna_id")
-    private Set<LugarTrabajo> lugarTrabajo;
+    @Column(name = "region_id")
+    private Long regionId;
 
     @Column()
     public boolean activo;
