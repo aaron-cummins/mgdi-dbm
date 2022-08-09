@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -24,9 +25,11 @@ public class Region {
     @Column(length = 250)
     public String nombre;
 
-    @JsonManagedReference
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)//mappedBy = "id")
     @JoinColumn(name = "region_id")
+    @JsonManagedReference
+    @JsonIgnore
     private List<Comuna> comunas;
 
     public boolean activo;

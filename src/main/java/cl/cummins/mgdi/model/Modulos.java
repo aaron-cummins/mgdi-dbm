@@ -1,10 +1,13 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,7 +24,11 @@ public class Modulos {
         @Column(length = 250)
         public String controller;
 
-
+        @OneToMany()
+        @JoinColumn(name = "id_modulo")
+        @JsonManagedReference
+        @JsonIgnore
+        public List<VistasGroup> grupos;
 
         @Column()
         public Timestamp created_at;

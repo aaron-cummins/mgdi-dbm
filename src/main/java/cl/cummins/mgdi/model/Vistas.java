@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -24,6 +25,11 @@ public class Vistas {
     @Column(length = 250)
     public String controller;
 
+    /*@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    public VistasGroup grupo;*/
+
+    public Long id_grupo;
 
     @Column()
     public Timestamp created_at;
