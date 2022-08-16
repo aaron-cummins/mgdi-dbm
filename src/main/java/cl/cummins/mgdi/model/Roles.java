@@ -1,6 +1,8 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -19,9 +21,12 @@ public class Roles {
     @Column(length = 250)
     public String nombre;
 
+    //@OneToMany(mappedBy = "rol", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @OneToMany()
+    @JoinColumn(name = "id_rol")
+    @JsonManagedReference
     @JsonIgnore
-    @OneToMany(mappedBy = "rol", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
-    private List<PermisosGlobales> permisosGlobales;
+    public List<PermisosGlobales> permisosGlobales;
 
     @Column()
     public Timestamp created_at;

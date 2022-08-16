@@ -29,4 +29,5 @@ public class VistasGroup {
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference*/
     public Long id_modulo;
+
 }

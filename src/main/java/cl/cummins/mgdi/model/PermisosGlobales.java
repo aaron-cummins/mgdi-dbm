@@ -16,13 +16,13 @@ public class PermisosGlobales {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementPermisosGlobales")
     public Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_rol", nullable = false)
-    public Roles rol;
+    /*@ManyToOne
+    @JoinColumn(name = "id_rol", nullable = false)*/
+    public Long id_rol;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "id_vista", nullable = false)
-    public Vistas vistas;
+    public Vistas vistas;*/
 
     /*@OneToMany(mappedBy = "permisosGlobales", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
     private List<Vistas> vistas;*/
@@ -39,21 +39,21 @@ public class PermisosGlobales {
         this.id = id;
     }
 
-    public Roles getRol() {
+    /*public Roles getRol() {
         return rol;
     }
 
     public void setRol(Roles rol) {
         this.rol = rol;
-    }
+    }*/
 
-    public Vistas getVistas() {
+    /*public Vistas getVistas() {
         return vistas;
     }
 
     public void setVistas(Vistas vistas) {
         this.vistas = vistas;
-    }
+    }*/
 
     public Modulos getModulo(){
         return this.modulo;

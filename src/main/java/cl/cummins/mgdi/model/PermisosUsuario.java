@@ -22,17 +22,19 @@ public class PermisosUsuario {
     @Column(name = "id_lugar_trabajo")
     public Integer lugarTrabajo;
 
-
-
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = false)
     public Roles roles;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    /*@ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "permisos_usuario_version_motors",
-            joinColumns = @JoinColumn(name = "permisos_usuario_null"),
+            joinColumns = @JoinColumn(name = "permisos_usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "version_motors_id"))
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
+    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();*/
+
+    //@ManyToOne
+    //@JoinColumn(name = "usuario_id", nullable = false)
+    public Long usuario_id;
 
 
 }

@@ -26,7 +26,7 @@ public class Region {
     public String nombre;
 
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)//mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL)//mappedBy = "id")
     @JoinColumn(name = "region_id")
     @JsonManagedReference
     @JsonIgnore

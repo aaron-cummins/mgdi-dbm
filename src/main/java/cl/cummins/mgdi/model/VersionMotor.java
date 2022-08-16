@@ -62,8 +62,8 @@ public class VersionMotor {
     private Posttratamiento posttratamiento;
 
 
-    @ManyToMany(mappedBy = "versionMotors", cascade = CascadeType.PERSIST)
-    private Set<PermisosUsuario> permisosUsuarios = new LinkedHashSet<>();
+   /*@ManyToMany(mappedBy = "versionMotors", cascade = CascadeType.PERSIST)
+    private Set<PermisosUsuario> permisosUsuarios = new LinkedHashSet<>();¨*/
 
 
 }
