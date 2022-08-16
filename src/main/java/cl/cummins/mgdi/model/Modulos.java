@@ -24,11 +24,13 @@ public class Modulos {
         @Column(length = 250)
         public String controller;
 
+        public String icono;
+
         @OneToMany()
-        @JoinColumn(name = "id_modulo")
-        @JsonManagedReference
+        @JoinColumn(name = "id_modulo",insertable = false, updatable = false)
         @JsonIgnore
-        public List<VistasGroup> grupos;
+        @JsonManagedReference
+        private List<VistasGroup> grupos;
 
         @Column()
         public Timestamp created_at;

@@ -20,14 +20,11 @@ public class VistasGroup {
     public String nombre;
 
     @OneToMany()
-    @JoinColumn(name = "id_grupo")
+    @JoinColumn(name = "id_grupo", insertable = false, updatable = false)
     @JsonManagedReference
     @JsonIgnore
     public List<Vistas> vistas;
 
-    /*@JsonIgnore
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference*/
     public Long id_modulo;
 
 }
