@@ -24,9 +24,6 @@ public class PermisosGlobales {
     @JoinColumn(name = "id_vista", nullable = false)
     public Vistas vistas;*/
 
-    /*@OneToMany(mappedBy = "permisosGlobales", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
-    private List<Vistas> vistas;*/
-
     @ManyToOne
     @JoinColumn(name="id_modulo", nullable = false)
     public Modulos modulo;

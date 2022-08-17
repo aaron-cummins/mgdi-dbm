@@ -9,9 +9,9 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name="modulos")
+@Data
 public class Modulos {
 
         @Id

@@ -55,9 +55,5 @@ public class LugarTrabajo {
         this.flotases = flotases;
     }
 
-//    @JsonBackReference
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private Usuario usuario;
-
 
 }

@@ -22,7 +22,6 @@ public class Oem {
 
     private boolean activo;
 
-
     @OneToMany(mappedBy = "oem", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Equipo> equipos = new LinkedHashSet<>();
 

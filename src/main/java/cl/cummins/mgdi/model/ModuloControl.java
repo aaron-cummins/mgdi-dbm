@@ -22,11 +22,6 @@ public class ModuloControl {
     @OneToMany(mappedBy = "moduloControl", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
 
-    public Set<VersionMotor> getVersionMotors() {
-        return versionMotors;
-    }
 
-    public void setVersionMotors(Set<VersionMotor> versionMotors) {
-        this.versionMotors = versionMotors;
-    }
+
 }

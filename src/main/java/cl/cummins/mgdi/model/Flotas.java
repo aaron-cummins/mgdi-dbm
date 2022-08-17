@@ -28,11 +28,4 @@ public class Flotas {
     private Set<Unidad> unidads = new LinkedHashSet<>();
 
 
-//    public LugarTrabajo getLugarTrabajo() {
-//        return lugarTrabajo;
-//    }
-//
-//    public void setLugarTrabajo(LugarTrabajo lugarTrabajo) {
-//        this.lugarTrabajo = lugarTrabajo;
-//    }
 }
