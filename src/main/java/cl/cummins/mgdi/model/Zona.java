@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -20,9 +21,10 @@ public class Zona {
 
     private boolean activo;
 
-    @JsonBackReference
+    /*@JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
-    private Pais pais;
+    private Pais pais;*/
+    private Long pais_id;
 
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL)

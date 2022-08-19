@@ -16,7 +16,7 @@ public class TipoLugarTrabajo{
 
     private String tipo;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<LugarTrabajo> lugarTrabajos;
+    /*@OneToMany(fetch = FetchType.LAZY)
+    private List<LugarTrabajo> lugarTrabajos;*/
 
 }
