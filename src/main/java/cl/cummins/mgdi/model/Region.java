@@ -1,9 +1,9 @@
 package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +12,8 @@ import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementRegion")
@@ -25,14 +27,10 @@ public class Region {
     @Column(length = 250)
     public String nombre;
 
-
-    @OneToMany(cascade = CascadeType.ALL)//mappedBy = "id")
-    @JoinColumn(name = "region_id")
-    @JsonManagedReference
     @JsonIgnore
+    @OneToMany(mappedBy = "region")
     private List<Comuna> comunas;
 
     public boolean activo;
-
 
 }

@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -20,12 +21,13 @@ public class Flotas {
 
     public boolean activo;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "lugar_trabajo_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "lugar_trabajo_id", referencedColumnName = "id")
     private LugarTrabajo lugarTrabajo;
 
-    @OneToMany(mappedBy = "flotas", orphanRemoval = true)
-    private Set<Unidad> unidads = new LinkedHashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "flotas")
+    private Set<Unidad> unidades;
 
 
 }

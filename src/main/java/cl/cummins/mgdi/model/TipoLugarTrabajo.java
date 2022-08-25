@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -16,7 +17,8 @@ public class TipoLugarTrabajo{
 
     private String tipo;
 
-    /*@OneToMany(fetch = FetchType.LAZY)
-    private List<LugarTrabajo> lugarTrabajos;*/
+    @JsonIgnore
+    @OneToMany(mappedBy = "tipoLugarTrabajo")
+    private List<LugarTrabajo> lugarTrabajos;
 
 }

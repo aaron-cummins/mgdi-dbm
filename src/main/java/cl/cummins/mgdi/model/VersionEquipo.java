@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -17,12 +18,12 @@ public class VersionEquipo {
 
     private boolean activo;
 
-
-    @OneToMany(mappedBy = "versionEquipo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Unidad> unidads = new LinkedHashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "versionEquipo")
+    private Set<Unidad> unidades;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "equipo_id")
+    @JoinColumn(name = "equipo_id", referencedColumnName = "id")
     private Equipo equipo;
 
 

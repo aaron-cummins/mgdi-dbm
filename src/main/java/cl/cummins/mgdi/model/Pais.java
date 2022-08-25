@@ -3,7 +3,6 @@ package cl.cummins.mgdi.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,9 +21,7 @@ public class Pais {
 
     public boolean activo;
 
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pais_id")
     @JsonIgnore
+    @OneToMany(mappedBy = "pais")
     private List<Zona> zonas;
 }

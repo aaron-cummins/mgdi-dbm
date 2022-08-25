@@ -1,11 +1,13 @@
 package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,28 +34,23 @@ public class LugarTrabajo {
 
     private String telefono;
 
-    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "zona_id", referencedColumnName = "id")
     private Zona zona;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tipo_lugar_trabajo_id", referencedColumnName ="id")
     private TipoLugarTrabajo tipoLugarTrabajo;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "comuna_id", referencedColumnName = "id")
     private Comuna comuna;
 
-    @OneToMany(mappedBy = "lugarTrabajo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Flotas> flotases = new LinkedHashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "lugarTrabajo")
+    private List<Flotas> flotas;
 
-    public Set<Flotas> getFlotases() {
-        return flotases;
-    }
 
-    public void setFlotases(Set<Flotas> flotases) {
-        this.flotases = flotases;
-    }
 
 
 }

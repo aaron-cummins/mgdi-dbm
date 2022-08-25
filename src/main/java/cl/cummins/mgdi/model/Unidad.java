@@ -25,15 +25,15 @@ public class Unidad {
     public boolean activo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "lugar_trabajo_id")
+    @JoinColumn(name = "lugar_trabajo_id", referencedColumnName = "id")
     private LugarTrabajo lugarTrabajo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "flotas_id")
+    @JoinColumn(name = "flotas_id", referencedColumnName = "id")
     private Flotas flotas;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "version_equipo_id")
+    @JoinColumn(name = "version_equipo_id", referencedColumnName = "id")
     private VersionEquipo versionEquipo;
 
 

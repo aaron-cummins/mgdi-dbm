@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,13 +20,11 @@ public class Zona {
 
     private boolean activo;
 
-    /*@JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
-    private Pais pais;*/
-    private Long pais_id;
+    @JoinColumn(name = "pais_id", referencedColumnName = "id")
+    private Pais pais;
 
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "zona_id")
+    @JsonIgnore
+    @OneToMany(mappedBy = "zona")
     private List<LugarTrabajo> lugarTrabajos;
 }

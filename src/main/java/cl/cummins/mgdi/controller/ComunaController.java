@@ -2,6 +2,8 @@ package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Comuna;
 import cl.cummins.mgdi.service.ComunaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +16,7 @@ import java.util.List;
 @RequestMapping("/api/comuna")
 public class ComunaController {
 
-    //TODO: Verificar guardado de comuna nueva.
-
+    private static final Logger logger = LoggerFactory.getLogger(ComunaController.class);
     @Autowired
     private ComunaService comunaService;
 
@@ -33,11 +34,14 @@ public class ComunaController {
 
     @PostMapping("/create")
     public ResponseEntity<Comuna> create(@Valid @RequestBody Comuna comuna){
+        logger.info(comuna.toString());
         return new ResponseEntity<>(comunaService.create(comuna), HttpStatus.CREATED);
     }
 
     @PutMapping("/save")
     public ResponseEntity<Comuna> update(@Valid @RequestBody Comuna comuna){
+        logger.info(comuna.toString());
+
         return comunaService.findById(comuna.getId())
                 .map( c -> ResponseEntity.ok(comunaService.update(comuna)))
                 .orElseGet(() -> ResponseEntity.notFound().build());

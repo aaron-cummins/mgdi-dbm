@@ -1,13 +1,14 @@
 package cl.cummins.mgdi.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="comunas")
@@ -22,8 +23,14 @@ public class Comuna {
     @Column(length = 250)
     public String nombre;
 
-    @Column(name = "region_id")
-    private Long regionId;
+    @ManyToOne(cascade =CascadeType.ALL)
+    @JoinColumn(name = "region_id", referencedColumnName = "id")
+    private Region region;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "comuna")
+    private List<LugarTrabajo> lugarTrabajoList;
+
 
     @Column()
     public boolean activo;

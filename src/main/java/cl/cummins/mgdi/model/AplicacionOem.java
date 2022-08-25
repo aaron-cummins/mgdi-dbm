@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -19,7 +20,8 @@ public class AplicacionOem {
 
     private boolean activo;
 
-    @OneToMany(mappedBy = "aplicacionOem", orphanRemoval = true)
-    private Set<Equipo> equipos = new LinkedHashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "aplicacionOem")
+    private Set<Equipo> equipos;
 
   }
