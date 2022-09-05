@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Region {
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementRegion")
     public Long id;
 

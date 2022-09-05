@@ -77,7 +77,6 @@ class ComunaControllerTest {
 
         Set<ConstraintViolation<Comuna>> constraintViolations =
                 validator.validate(comuna);
-        System.out.println(constraintViolations);
         assertEquals(3, constraintViolations.size());
     }
 
@@ -92,7 +91,7 @@ class ComunaControllerTest {
     }
 
     @Test
-    void createNotEmptyIdNotEmptyNombreComuna_Test(){
+    void createEmptyNombreComuna_Test(){
         Comuna comuna = new Comuna();
         comuna.setId(1L);
         comuna.setNombre("Providencia");
