@@ -1,12 +1,13 @@
 package cl.cummins.mgdi.controller;
 
-import cl.cummins.mgdi.model.Region;
 import cl.cummins.mgdi.model.Zona;
 import cl.cummins.mgdi.repository.IZonaRepository;
 import cl.cummins.mgdi.service.ZonaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -19,9 +20,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class ZonaControllerTest {
@@ -57,10 +57,6 @@ class ZonaControllerTest {
 
     @Test
     void createZonaWithIdNull_Test(){
-//        Zona zona = new Zona(null, "Zona Norte", true, null, null );
-//        Set<ConstraintViolation<Zona>> constraintViolation =
-//                validator.validate(zona);
-//        assertEquals(1, constraintViolation.size());
         assertThrows(NullPointerException.class, () ->
             {new Zona(null, "Zona Norte", true, null, null );});
     }
@@ -99,14 +95,35 @@ class ZonaControllerTest {
     }
 
     @Test
+    void findRegionById_notFound_Test(){
+        assertTrue(zonaService.findById(0L).isEmpty());
+    }
+
+    @Test
     void create() {
+        Zona zona = new Zona(1L, "Zona Norte", true, null, null);
+        when(zonaRepository.save(zona)).thenReturn(zona);
+        assertEquals(zona, zonaService.create(zona));
     }
 
     @Test
     void update() {
+        ArgumentCaptor<Zona> zonaArgumentCaptor = ArgumentCaptor.forClass(Zona.class);
+        Zona zona = new Zona(1L, "Zona Norte", true, null, null);
+        Zona responseDto = zonaService.update(zona);
+        verify(zonaRepository, times(1)).save(zonaArgumentCaptor.capture());
+        Zona savedEntity = zonaArgumentCaptor.getValue();
+        assertEquals(zona.getNombre(), savedEntity.getNombre());
     }
 
     @Test
     void delete() {
+        Zona zona = new Zona(1L, "Zona Norte", true, null, null);
+        when(zonaRepository.save(zona))
+                .thenReturn(zona);
+        when(zonaRepository.findById(zona.getId()))
+                .thenReturn(Optional.of(zona));
+        zonaRepository.deleteById(zona.getId());
+        verify(zonaRepository).deleteById(zona.getId());
     }
 }

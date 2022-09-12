@@ -36,6 +36,10 @@ public class ComunaService implements ICRUDService<Comuna>{
 
     @Override
     public void delete(Long id) {
-
+        Optional<Comuna> comuna = comunaRepository.findById(id);
+        if (comuna.isPresent()) {
+            comunaRepository.deleteById(id);
+        }
     }
+
 }

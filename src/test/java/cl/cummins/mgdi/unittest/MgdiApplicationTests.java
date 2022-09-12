@@ -1,20 +1,21 @@
 package cl.cummins.mgdi.unittest;
 
-import cl.cummins.mgdi.MgdiApplication;
+import cl.cummins.mgdi.controller.UsuarioController;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 
-//@TestConfiguration
-//@TestPropertySource("classpath:application.properties-test")
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 @SpringBootTest
 class MgdiApplicationTests {
 
+	@Autowired
+	UsuarioController usuarioController;
 	@Test
 	void contextLoads() {
-
+		assertThat(usuarioController).isNotNull();
 	}
 
 }

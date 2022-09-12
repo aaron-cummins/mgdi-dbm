@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cargo")
 @Data
+@AllArgsConstructor
 public class Cargo {
 
     @Id
@@ -16,6 +18,7 @@ public class Cargo {
 
     @Column(length = 250)
     public String nombre;
+
     @Column()
     public boolean activo;
 

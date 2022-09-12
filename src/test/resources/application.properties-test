@@ -1,15 +1,26 @@
-server.port=${SERVER_PORT}
+server.port=8080
 
-spring.jpa.database=${DATABASE}
-spring.jpa.hibernate.ddl-auto=${HIBERNATE_DDL_AUTO}
+spring.jpa.database=h2
+spring.jpa.hibernate.ddl-auto=create-drop
 
-spring.datasource.driver-class-name=${DATASOURCE_DRIVER_CLASS_NAME}
-spring.datasource.url=jdbc:${DATABASE}://${DATASOURCE_URL}:${DATASOURCE_PORT}/${DATASOURCE_DB}
-spring.datasource.username=${DATASOURCE_USERNAME}
-spring.datasource.password=${DATASOURCE_PASSWORD}
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.url=jdbc:h2://mem:db:DB_CLOSE_DELAY=-1
+spring.datasource.username=sa
+spring.datasource.password=sa
+spring.jpa-show-sql=true
 
 debug=true
 ##TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
 #Logging.Level.root=INFO
 #Logging.file.path=/tmp/
 management.endpoints.web.exposure.include=*
+
+#DATABASE=postgresql;
+#DATASOURCE_DB=analytics2;
+#DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver;
+#DATASOURCE_PASSWORD=123456;DATASOURCE_PORT=5432;
+#DATASOURCE_URL=psqldccplataformadatascienceqa.postgres.database.azure.com;
+#DATASOURCE_USERNAME=postgres;
+#DATASOURCE_OPTION=;
+#HIBERNATE_DDL_AUTO=update;
+#SERVER_PORT=8080

@@ -1,6 +1,7 @@
 package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Entity
 @Table
 @Data
+@AllArgsConstructor
 public class AplicacionOem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementAplicacionOem")
