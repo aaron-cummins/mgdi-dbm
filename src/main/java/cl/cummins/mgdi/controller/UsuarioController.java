@@ -65,11 +65,6 @@ public class UsuarioController {
         return ResponseEntity.notFound().build();
     }
 
-    //TODO: hablar daniel negrin por actualizacion de equipos en specto de esn.
-    //TODO: pedir a Guillermo Lillo verificar la data de CMZ
-    //TODO: pedir felipe pizarro data de epsa.
-
-
     @PostMapping
     public ResponseEntity<Usuario> create(@Valid @RequestBody Usuario usuario){
         return new ResponseEntity<>(usuarioService.create(usuario), HttpStatus.CREATED);

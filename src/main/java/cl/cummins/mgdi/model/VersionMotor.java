@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name="version_motor")
 @Data
+@AllArgsConstructor
 public class VersionMotor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementVersionMotor")

@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-class IUsuarioRepositoryTest {
+class UsuarioRepositoryTest {
 
     @Autowired
     private IUsuarioRepository usuarioRepository;
@@ -64,3 +64,4 @@ class IUsuarioRepositoryTest {
         assertEquals(usuario.getNombres(), savedUsuario.get().getNombres());
     }
 }
+

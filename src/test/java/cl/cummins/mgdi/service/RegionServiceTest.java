@@ -48,7 +48,6 @@ class RegionServiceTest {
     void create() {
         regionService.create(region);
         verify(regionRepository).save(region);
-
     }
 
     @Test
@@ -63,15 +62,13 @@ class RegionServiceTest {
 
     @Test
     void deleteRegion_NotPresent_Test() {
-        regionService.delete(1L);
-        verify(regionRepository, times(1)).deleteById(1L);
+        regionService.delete(region.getId());
+        verify(regionRepository, times(1)).deleteById(region.getId());
     }
 
     @Test
     void deleteRegion_Present_Test(){
-
         regionService.create(region);
-
         regionService.delete(region.getId());
         verify(regionRepository).deleteById(region.getId());
     }

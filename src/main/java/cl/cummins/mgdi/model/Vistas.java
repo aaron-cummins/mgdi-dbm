@@ -2,6 +2,7 @@ package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -10,8 +11,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name="vistas")
+@AllArgsConstructor
 public class Vistas {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementVistas")
     public Long id;

@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name="unidad")
 @Data
+@AllArgsConstructor
 public class Unidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementUnidad")
