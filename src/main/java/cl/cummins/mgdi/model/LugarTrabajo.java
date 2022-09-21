@@ -34,23 +34,13 @@ public class LugarTrabajo {
 
     private String telefono;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "zona_id", referencedColumnName = "id")
-    private Zona zona;
+    @Column(name = "zona_id")
+    private Long zonaId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tipo_lugar_trabajo_id", referencedColumnName ="id")
-    private TipoLugarTrabajo tipoLugarTrabajo;
+    @Column(name = "tipo_lugar_trabajo_id")
+    private Long tipoLugarTrabajoId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "comuna_id", referencedColumnName = "id")
-    private Comuna comuna;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "lugarTrabajo")
-    private List<Flotas> flotas;
-
-
-
+    @Column(name = "comuna_id")
+    private Long comunaId;
 
 }

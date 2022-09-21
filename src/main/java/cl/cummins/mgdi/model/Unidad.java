@@ -2,6 +2,7 @@ package cl.cummins.mgdi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Table(name="unidad")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Unidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementUnidad")
@@ -18,25 +20,24 @@ public class Unidad {
 
     public String nombre;
 
-    public String nserie_unidad;
+    @Column(name = "nserie_unidad")
+    public String nserieUnidad;
 
-    public Date fecha_activacion;
+    @Column(name = "fecha_activacion")
+    public Date fechaActivacion;
 
-    public Date fecha_desactivacion;
+    @Column(name="fecha_desactivacion")
+    public Date fechaDesactivacion;
 
     public boolean activo;
+    @Column(name = "lugar_trabajo_id")
+    private Long lugarTrabajoId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "lugar_trabajo_id", referencedColumnName = "id")
-    private LugarTrabajo lugarTrabajo;
+    @Column(name = "flotas_id")
+    private Long flotasId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "flotas_id", referencedColumnName = "id")
-    private Flotas flotas;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "version_equipo_id", referencedColumnName = "id")
-    private VersionEquipo versionEquipo;
+    @Column(name = "version_equipo_id")
+    private Long versionEquipo;
 
 
 }

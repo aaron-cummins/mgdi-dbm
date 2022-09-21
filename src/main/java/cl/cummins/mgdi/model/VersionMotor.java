@@ -2,6 +2,7 @@ package cl.cummins.mgdi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.Set;
 @Table(name="version_motor")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class VersionMotor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementVersionMotor")
@@ -29,39 +31,32 @@ public class VersionMotor {
 
     private Boolean activo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "motor_id")
-    private Motor motor;
+    @Column(name = "motor_id")
+    private Long motorId;
 
-    @ManyToMany
-    @JoinTable(name = "version_motor_tipo_admisions",
-            joinColumns = @JoinColumn(name = "version_motor_null"),
-            inverseJoinColumns = @JoinColumn(name = "tipo_admisions_id"))
-    private Set<TipoAdmision> tipoAdmisions = new LinkedHashSet<>();
+//    @ManyToMany
+//    @JoinTable(name = "version_motor_tipo_admisions",
+//            joinColumns = @JoinColumn(name = "version_motor_null"),
+//            inverseJoinColumns = @JoinColumn(name = "tipo_admisions_id"))
+//    private Set<TipoAdmision> tipoAdmisions = new LinkedHashSet<>();
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "modulo_control_id")
-    private ModuloControl moduloControl;
+    @Column(name = "modulo_control_id")
+    private Long moduloControlId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tipo_combustible_id")
-    private TipoCombustible tipoCombustible;
+    @Column(name = "tipo_combustible_id")
+    private Long tipoCombustibleId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tipo_emision_id")
-    private TipoEmision tipoEmision;
+    @Column(name = "tipo_emision_id")
+    private Long tipoEmisionId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tipo_filtrado_id")
-    private TipoFiltrado tipoFiltrado;
+    @Column(name = "tipo_filtrado_id")
+    private Long tipoFiltradoId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tipo_inyeccion_id")
-    private TipoInyeccion tipoInyeccion;
+    @Column(name = "tipo_inyeccion_id")
+    private Long tipoInyeccionId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "posttratamiento_id")
-    private Posttratamiento posttratamiento;
+    @Column(name = "posttratamiento_id")
+    private Long postTratamientoId;
 
 
    /*@ManyToMany(mappedBy = "versionMotors", cascade = CascadeType.PERSIST)

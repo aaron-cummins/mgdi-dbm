@@ -19,8 +19,8 @@ public class ModuloControl {
 
     private Boolean activo;
 
-    @OneToMany(mappedBy = "moduloControl", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
+//    @OneToMany(mappedBy = "moduloControl", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
 
 
 

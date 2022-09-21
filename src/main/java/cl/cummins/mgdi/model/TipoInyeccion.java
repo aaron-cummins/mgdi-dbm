@@ -19,7 +19,7 @@ public class TipoInyeccion {
 
     private Boolean activo;
 
-    @OneToMany(mappedBy = "tipoInyeccion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
+//    @OneToMany(mappedBy = "tipoInyeccion", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
 
 }

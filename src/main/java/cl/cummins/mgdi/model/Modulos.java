@@ -26,11 +26,11 @@ public class Modulos {
 
         public String icono;
 
-        @OneToMany()
-        @JoinColumn(name = "id_modulo",insertable = false, updatable = false)
-        @JsonIgnore
-        @JsonManagedReference
-        private List<VistasGroup> grupos;
+//        @OneToMany()
+//        @JoinColumn(name = "id_modulo",insertable = false, updatable = false)
+//        @JsonIgnore
+//        @JsonManagedReference
+//        private List<VistasGroup> grupos;
 
         @Column()
         public Timestamp created_at;

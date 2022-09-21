@@ -1,6 +1,8 @@
 package cl.cummins.mgdi.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import java.util.Set;
 @Entity
 @Table(name="posttratamiento")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Posttratamiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementPosttratamiento")
@@ -18,9 +22,5 @@ public class Posttratamiento {
     private String nombre;
 
     private Boolean activo;
-
-    @OneToMany(mappedBy = "posttratamiento", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
-
 
 }

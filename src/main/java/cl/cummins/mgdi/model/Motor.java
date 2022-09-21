@@ -22,12 +22,7 @@ public class Motor {
 
     private Boolean activo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aplicacion_id")
-    private Aplicacion aplicacion;
-
-    @OneToMany(mappedBy = "motor", orphanRemoval = true)
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
-
+    @Column(name = "aplicacion_id")
+    private Long aplicacionId;
 
 }

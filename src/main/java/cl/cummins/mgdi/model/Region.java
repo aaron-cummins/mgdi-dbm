@@ -29,10 +29,6 @@ public class Region {
     @Column(length = 250)
     public String nombre;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "region")
-    private List<Comuna> comunas;
-
     public boolean activo;
 
 }

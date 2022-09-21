@@ -19,7 +19,4 @@ public class TipoFiltrado {
 
     private Boolean activo;
 
-    @OneToMany(mappedBy = "tipoFiltrado", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
-
   }

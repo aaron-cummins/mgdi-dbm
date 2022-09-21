@@ -19,7 +19,7 @@ public class TipoAdmision {
 
     private Boolean activo;
 
-    @ManyToMany(mappedBy = "tipoAdmisions")
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
+//    @ManyToMany(mappedBy = "tipoAdmisions")
+//    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
 
     }

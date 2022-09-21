@@ -2,7 +2,9 @@ package cl.cummins.mgdi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @Entity
 @Table(name = "pais")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementPais")
@@ -21,7 +25,4 @@ public class Pais {
 
     public boolean activo;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "pais")
-    private List<Zona> zonas;
 }

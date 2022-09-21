@@ -16,6 +16,6 @@ public class UsuarioDto implements Serializable {
     private final String telefono;
     private final String anexo;
     private final CargoDto cargo;
-    private final Set<PermisosUsuarioDto> permisos;
+//    private final Set<PermisosUsuarioDto> permisos;
     private final boolean activo;
 }

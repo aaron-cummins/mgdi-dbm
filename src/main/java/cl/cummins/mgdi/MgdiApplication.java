@@ -13,6 +13,7 @@ public class MgdiApplication {
     public static void main(String[] args) {
         SpringApplication.run(MgdiApplication.class, args);
         logger.info(new BCryptPasswordEncoder().encode("cristian.reyesf@cummins.cl"));
+        logger.info(new BCryptPasswordEncoder().encode("aaron.zuniga@cummins.cl"));
     }
 
     // Creating a bean for password encryption

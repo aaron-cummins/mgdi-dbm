@@ -3,6 +3,7 @@ package cl.cummins.mgdi.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.Set;
 @Table
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class AplicacionOem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementAplicacionOem")
@@ -21,9 +23,5 @@ public class AplicacionOem {
     private String nombre;
 
     private boolean activo;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "aplicacionOem")
-    private Set<Equipo> equipos;
 
   }

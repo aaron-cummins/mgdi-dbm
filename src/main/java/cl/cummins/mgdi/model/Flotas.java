@@ -24,13 +24,7 @@ public class Flotas {
 
     public boolean activo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "lugar_trabajo_id", referencedColumnName = "id")
-    private LugarTrabajo lugarTrabajo;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "flotas")
-    private Set<Unidad> unidades;
-
+    @Column(name = "lugar_trabajo_id")
+    private Long lugarTrabajoId;
 
 }

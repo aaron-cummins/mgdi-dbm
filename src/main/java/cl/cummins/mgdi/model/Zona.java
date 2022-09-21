@@ -28,11 +28,7 @@ public class Zona {
 
     private boolean activo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pais_id", referencedColumnName = "id")
-    private Pais pais;
+    @Column(name = "pais_id")
+    private Long pais;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "zona")
-    private List<LugarTrabajo> lugarTrabajos;
 }

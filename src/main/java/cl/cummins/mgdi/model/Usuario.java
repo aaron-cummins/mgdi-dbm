@@ -52,15 +52,13 @@ public class Usuario {
 
     public String password;
 
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "id_cargo", nullable = false)
-    private Cargo cargo;
+    @Column(name = "id_cargo")
+    private Long cargoId;
 
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "usuario_id")
-    private Set<PermisosUsuario> permisos;
+//    @JsonManagedReference
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "usuario_id")
+//    private Set<PermisosUsuario> permisos;
 
     @Column()
     public Timestamp created_at;

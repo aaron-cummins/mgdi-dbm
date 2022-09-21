@@ -19,7 +19,7 @@ public class TipoCombustible {
 
     private Boolean activo;
 
-    @OneToMany(mappedBy = "tipoCombustible", orphanRemoval = true)
-    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
+//    @OneToMany(mappedBy = "tipoCombustible", orphanRemoval = true)
+//    private Set<VersionMotor> versionMotors = new LinkedHashSet<>();
 
   }

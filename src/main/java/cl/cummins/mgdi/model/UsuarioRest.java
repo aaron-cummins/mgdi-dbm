@@ -24,7 +24,7 @@ public class UsuarioRest {
 
     private Cargo cargo;
 
-    private Set<PermisosUsuario> permisos;
+//    private Set<PermisosUsuario> permisos;
 
     public boolean activo;
 

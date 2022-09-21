@@ -17,8 +17,8 @@ public class TipoLugarTrabajo{
 
     private String tipo;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "tipoLugarTrabajo")
-    private List<LugarTrabajo> lugarTrabajos;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "tipoLugarTrabajo")
+//    private List<LugarTrabajo> lugarTrabajos;
 
 }

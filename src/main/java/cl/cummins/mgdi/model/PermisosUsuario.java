@@ -8,11 +8,15 @@ import java.util.Objects;
 import java.util.Set;
 
 import cl.cummins.mgdi.model.Roles;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PermisosUsuario {
 
     @Id
@@ -33,8 +37,8 @@ public class PermisosUsuario {
     private Set<VersionMotor> versionMotors = new LinkedHashSet<>();*/
 
     //@ManyToOne
-    //@JoinColumn(name = "usuario_id", nullable = false)
-    public Long usuario_id;
+    @JoinColumn(name = "usuario_id")
+    public Long usuarioId;
 
 
 }

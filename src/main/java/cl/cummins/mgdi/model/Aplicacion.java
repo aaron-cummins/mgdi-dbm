@@ -26,8 +26,5 @@ public class Aplicacion {
 
     private Boolean activo;
 
-    @OneToMany(mappedBy = "aplicacion", orphanRemoval = true)
-    private Set<Motor> motors = new LinkedHashSet<>();
-
 
 }
