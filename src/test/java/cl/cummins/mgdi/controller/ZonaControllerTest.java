@@ -2,12 +2,11 @@ package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Zona;
 import cl.cummins.mgdi.repository.IZonaRepository;
-import cl.cummins.mgdi.service.ZonaService;
+import cl.cummins.mgdi.exeption.service.ZonaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;

@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.service;
 
+import cl.cummins.mgdi.exeption.service.VistasService;
 import cl.cummins.mgdi.model.Vistas;
 import cl.cummins.mgdi.repository.IVistasRepository;
 import org.junit.jupiter.api.Test;

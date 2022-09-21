@@ -1,8 +1,7 @@
-package cl.cummins.mgdi.service;
+package cl.cummins.mgdi.exeption.service;
 
 import cl.cummins.mgdi.model.PermisosUsuario;
 import cl.cummins.mgdi.repository.IPermisosUsuarioRepository;
-import cl.cummins.mgdi.service.ICRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

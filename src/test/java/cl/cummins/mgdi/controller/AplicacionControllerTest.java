@@ -2,7 +2,7 @@ package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Aplicacion;
 import cl.cummins.mgdi.repository.IAplicacionRepository;
-import cl.cummins.mgdi.service.AplicacionService;
+import cl.cummins.mgdi.exeption.service.AplicacionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

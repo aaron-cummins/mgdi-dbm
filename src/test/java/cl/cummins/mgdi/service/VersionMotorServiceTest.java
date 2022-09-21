@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.service;
 
+import cl.cummins.mgdi.exeption.service.VersionMotorService;
 import cl.cummins.mgdi.model.VersionMotor;
 import cl.cummins.mgdi.repository.IVersionMotorRepository;
 import org.junit.jupiter.api.Test;

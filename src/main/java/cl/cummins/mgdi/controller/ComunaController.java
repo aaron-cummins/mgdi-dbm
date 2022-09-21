@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Comuna;
-import cl.cummins.mgdi.service.ComunaService;
+import cl.cummins.mgdi.exeption.service.ComunaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -26,7 +26,7 @@ public class JwtUtil {
                 .setIssuer("cl.cummins.mgdi")
                 .setIssuedAt(emisionDate)
                 .setExpiration(new Date(System.currentTimeMillis() + expireInMs))
-                .claim("GrantedAuthorities", new ArrayList<GrantedAuthority>())
+                //.claim("GrantedAuthorities", new ArrayList<GrantedAuthority>())
                 .signWith(key)
                 .compact();
     }

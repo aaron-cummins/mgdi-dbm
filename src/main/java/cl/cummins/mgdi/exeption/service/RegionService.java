@@ -1,4 +1,4 @@
-package cl.cummins.mgdi.service;
+package cl.cummins.mgdi.exeption.service;
 
 import cl.cummins.mgdi.model.Region;
 import cl.cummins.mgdi.repository.IRegionRepository;

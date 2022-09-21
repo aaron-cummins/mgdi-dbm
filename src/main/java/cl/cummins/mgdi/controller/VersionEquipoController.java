@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.VersionEquipo;
-import cl.cummins.mgdi.service.VersionEquipoService;
+import cl.cummins.mgdi.exeption.service.VersionEquipoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

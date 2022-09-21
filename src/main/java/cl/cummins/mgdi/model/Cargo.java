@@ -3,6 +3,7 @@ package cl.cummins.mgdi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "cargo")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Cargo {
 
     @Id

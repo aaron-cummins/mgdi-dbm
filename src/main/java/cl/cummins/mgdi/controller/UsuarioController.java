@@ -2,10 +2,9 @@ package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Usuario;
 import cl.cummins.mgdi.model.UsuarioRest;
-import cl.cummins.mgdi.service.UsuarioService;
+import cl.cummins.mgdi.exeption.service.UsuarioService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

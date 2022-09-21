@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Aplicacion;
-import cl.cummins.mgdi.service.AplicacionService;
+import cl.cummins.mgdi.exeption.service.AplicacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

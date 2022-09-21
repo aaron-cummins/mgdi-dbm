@@ -4,7 +4,7 @@ import cl.cummins.mgdi.model.Comuna;
 import cl.cummins.mgdi.model.LugarTrabajo;
 import cl.cummins.mgdi.model.Region;
 import cl.cummins.mgdi.repository.IComunaRepository;
-import cl.cummins.mgdi.service.ComunaService;
+import cl.cummins.mgdi.exeption.service.ComunaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

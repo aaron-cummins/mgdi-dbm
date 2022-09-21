@@ -1,4 +1,4 @@
-package cl.cummins.mgdi.service;
+package cl.cummins.mgdi.exeption.service;
 
 import java.util.List;
 import java.util.Optional;

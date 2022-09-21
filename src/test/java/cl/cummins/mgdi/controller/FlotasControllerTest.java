@@ -2,7 +2,7 @@ package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Flotas;
 import cl.cummins.mgdi.repository.IFlotasRepository;
-import cl.cummins.mgdi.service.FlotasService;
+import cl.cummins.mgdi.exeption.service.FlotasService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

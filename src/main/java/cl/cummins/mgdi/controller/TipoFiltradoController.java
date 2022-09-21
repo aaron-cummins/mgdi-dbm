@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.TipoFiltrado;
-import cl.cummins.mgdi.service.TipoFiltradoService;
+import cl.cummins.mgdi.exeption.service.TipoFiltradoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

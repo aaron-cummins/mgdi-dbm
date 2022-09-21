@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.service;
 
+import cl.cummins.mgdi.exeption.service.AplicacionService;
 import cl.cummins.mgdi.model.Aplicacion;
-import cl.cummins.mgdi.repository.IAplicacionOemRepository;
 import cl.cummins.mgdi.repository.IAplicacionRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

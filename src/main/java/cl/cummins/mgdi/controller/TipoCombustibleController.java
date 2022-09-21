@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.TipoCombustible;
-import cl.cummins.mgdi.service.TipoCombustibleService;
+import cl.cummins.mgdi.exeption.service.TipoCombustibleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

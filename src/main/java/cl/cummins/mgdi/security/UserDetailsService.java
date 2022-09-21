@@ -1,7 +1,7 @@
 package cl.cummins.mgdi.security;
 
 import cl.cummins.mgdi.model.Usuario;
-import cl.cummins.mgdi.service.UsuarioService;
+import cl.cummins.mgdi.exeption.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

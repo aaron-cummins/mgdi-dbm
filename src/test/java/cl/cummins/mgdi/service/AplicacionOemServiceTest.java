@@ -1,8 +1,8 @@
 package cl.cummins.mgdi.service;
 
+import cl.cummins.mgdi.exeption.service.AplicacionOemService;
 import cl.cummins.mgdi.model.AplicacionOem;
 import cl.cummins.mgdi.repository.IAplicacionOemRepository;
-import cl.cummins.mgdi.repository.IAplicacionRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

@@ -1,6 +1,6 @@
 package cl.cummins.mgdi.service;
 
-import cl.cummins.mgdi.model.Pais;
+import cl.cummins.mgdi.exeption.service.ZonaService;
 import cl.cummins.mgdi.model.Zona;
 import cl.cummins.mgdi.repository.IZonaRepository;
 import org.junit.jupiter.api.Test;

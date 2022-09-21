@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.service;
 
+import cl.cummins.mgdi.exeption.service.ComunaService;
 import cl.cummins.mgdi.model.Comuna;
 import cl.cummins.mgdi.model.Region;
 import cl.cummins.mgdi.repository.IComunaRepository;

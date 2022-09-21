@@ -1,5 +1,6 @@
 package cl.cummins.mgdi.service;
 
+import cl.cummins.mgdi.exeption.service.UnidadService;
 import cl.cummins.mgdi.model.Unidad;
 import cl.cummins.mgdi.repository.IUnidadRepository;
 import org.junit.jupiter.api.Test;

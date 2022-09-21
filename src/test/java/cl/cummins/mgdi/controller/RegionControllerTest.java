@@ -2,7 +2,7 @@ package cl.cummins.mgdi.controller;
 
 import cl.cummins.mgdi.model.Region;
 import cl.cummins.mgdi.repository.IRegionRepository;
-import cl.cummins.mgdi.service.RegionService;
+import cl.cummins.mgdi.exeption.service.RegionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
