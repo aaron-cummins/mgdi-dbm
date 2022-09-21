@@ -21,7 +21,6 @@ import java.util.List;
 public class Comuna {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "incrementComuna")
     public Long id;
 
