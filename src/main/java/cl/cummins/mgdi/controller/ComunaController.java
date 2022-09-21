@@ -32,13 +32,13 @@ public class ComunaController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Comuna> create(@Valid @RequestBody Comuna comuna){
         logger.info(comuna.toString());
         return new ResponseEntity<>(comunaService.create(comuna), HttpStatus.CREATED);
     }
 
-    @PutMapping("/save")
+    @PutMapping
     public ResponseEntity<Comuna> update(@Valid @RequestBody Comuna comuna){
         logger.info(comuna.toString());
 
