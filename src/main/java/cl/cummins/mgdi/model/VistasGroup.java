@@ -23,12 +23,13 @@ public class VistasGroup {
     @Column(length = 250)
     public String nombre;
 
-    @OneToMany()
-    @JoinColumn(name = "id_grupo", insertable = false, updatable = false)
-    @JsonManagedReference
-    @JsonIgnore
-    public List<Vistas> vistas;
+//    @OneToMany()
+//    @JoinColumn(name = "id_grupo", insertable = false, updatable = false)
+//    @JsonManagedReference
+//    @JsonIgnore
+//    public List<Vistas> vistas;
 
-    public Long id_modulo;
+    @Column(name = "modulo_id")
+    public Long moduloId;
 
 }

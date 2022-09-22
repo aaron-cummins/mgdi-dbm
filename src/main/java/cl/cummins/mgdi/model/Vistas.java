@@ -33,8 +33,8 @@ public class Vistas {
     /*@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference
     public VistasGroup grupo;*/
-
-    public Long id_grupo;
+    @Column(name = "grupo_vistas_id")
+    public Long grupoVistasId;
 
     @Column()
     public Timestamp created_at;
